@@ -1,5 +1,5 @@
 function hash(text, bit) {
-    if (bit > 300) {
+    if (bit > 350) {
         return "bit cannot be larger than 300";
     }
     
