@@ -19,10 +19,10 @@
     <br>
     <script src="./hashfunction.js"></script>
     <script>
-      var display = $(".ms-list-addnew").html()
+      var display = (".ms-list-addnew").html()
       
       function getInputValue() {
-        $(".ms-list-addnew").html(display);
+        (".ms-list-addnew").html(display);
         var text = document.getElementById("text").value;
         var bit = document.getElementById("bit").value;
         display = display.replace(hash(text,bit),"");
