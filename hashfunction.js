@@ -21,7 +21,7 @@ function hash(text, bit) {
     }
     
     if(Output.toString().length % 2 != 0) {
-        Output = Output.splti('');
+        Output = Output.split('');
         Output.push(0);
         Output = Output.join('');
     }
