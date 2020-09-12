@@ -10,16 +10,24 @@
     <br>
     <br>
     <br>
-    <button type="button" onclick="getInputValue();">Submit</button>
-    
-    
+    <button type="button" onclick="getInputValue();">Submit</button>\
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <script src="./hashfunction.js"></script>
     <script>
+      var originalsitestate = ('body').html();
+      
       function getInputValue() {
+        ('html').html(originalsitestate);
+        originalsitestate = ('body').html();
         var text = document.getElementById("text").value;
         var bit = document.getElementById("bit").value;
         
-        alert(hash(text,bit));
+        document.getElementById("hashfunction").innerHTML = hash(text,bit);
       }
     </script>
   </body>
