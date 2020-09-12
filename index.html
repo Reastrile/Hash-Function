@@ -11,6 +11,16 @@
     <br>
     <br>
     <button type="button" onclick="getInputValue();">Submit</button>
+    
+    
+    <script src="./hashfunction"></script>
+    <script>
+      function getInputValue() {
+        var text = document.getElementById("text").value;
+        var bit = document.getElementById("bit").value;
+        
+        alert(hash(text,bit));
+      }
   </body>
 </html>
     
