@@ -23,6 +23,6 @@ function hash(text, bit) {
     for (i = 0 ; i < (total.length / 2) ; i++) {
         OutputA.push(Characters[parseInt(total[i].concat(total[i + 1]))]);
     }
-    console.log(OutputA.length)
+    
     return OutputA.join('');
 }
