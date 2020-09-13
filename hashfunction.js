@@ -1,54 +1,28 @@
 function hash(text, bit) {
-    if (bit > 350) {
-        return "bit cannot be larger than 300";
-    }
-    
-    
-    
+    var hashlength = bit;
     var Characters = ["A","B","C","D","E","F","G","H","I","J","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","?",">","<",":","}","{","+","_","~","`","!","@","#","$","%","^","&","*","(",")","-","=","[","]",";","'",",",".","/"," "];
-    var Text = text.split('');
-    var Output = [];
-    var nbit = bit;
-    if (nbit < 5) {
-        nbit = nbit + 7;
+    var OutputA = text.split('');
+    var OutputB = [];
+    
+    for (i = 0 ; i < OutputA.length ; i++) {
+        OutputB.push(Characters.indexOf(OutputA[i]) * (i + 1));
     }
     
-    
-    for(i = 0 ; i < Text.length ; i++) {
-        Output.push(Characters.indexOf(Text[i]))
-    }
-    Output = Output.join('')
-    
-    while(Output.toString().length < bit) {
-        Output = Math.floor(Output * (nbit / 3));
-        Output = BigInt(Output).toString();
+    var total = 1;
+    for (i = 0 ; i < OutputB.length ; i++) {
+        total = total * OutputB[i];
     }
     
-    if(Output.toString().length % 2 != 0) {
-        Output = Output.split('');
-        Output.push(0);
-        Output = Output.join('');
+    total = BigInt(total ** 2).toString();
+    while (total.toString().length < (hashlength * 2)) {
+        total = BigInt(Math.floor(total * 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679)).toString();
     }
     
-    var x = 0;
-    TempStor = [];
-    while (x < Output.length) {
-        var n1 = Output[x].toString();
-        var n2 = Output[x + 1].toString();
-        TempStor.push(n1.concat(n2));
-        x = x + 2;
+    total = total.split('');
+    OutputA = [];
+    for (i = 0 ; i < (total.length / 2) ; i++) {
+        OutputA.push(Characters[parseInt(total[i].concat(total[i + 1]))]);
     }
-    
-    Output = [];
-    for(i = 0 ; i < TempStor.length ; i++) {
-        if (TempStor[x] == '00') {
-            Output.push(Characters[0]);
-        } else if (parseInt(TempStor[i]) > (Characters.length)) {
-            Output.push(Characters[0]);
-        } else {
-            Output.push(Characters[parseInt(TempStor[i], 10) - 1]);
-        }
-    }
-    
-    return Output.join('');
+    console.log(OutputA.length)
+    return OutputA.join('');
 }
