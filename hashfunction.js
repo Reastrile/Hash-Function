@@ -21,7 +21,7 @@ function hash(text, bit) {
     total = total.toString().split(''); total.splice(bit);
     OutputB = [];
     for (i = 0 ; i < total ; i++) {
-        OutputB.push(CharactersB[total[i]]);
+        OutputB.push(CharactersB[parseint(total[i])]);
     }
     
     return OutputB.join('');
