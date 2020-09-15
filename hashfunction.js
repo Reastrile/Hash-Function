@@ -19,5 +19,10 @@ function hash(text, bit) {
     }
     
     total = total.toString().split(''); total.splice(bit);
-    return total.join('');
+    OutputB = [];
+    for (i = 0 ; i < total ; i++) {
+        OutputB.push(CharactersB[total[i]]);
+    }
+    
+    return OutputB.join('');
 }
