@@ -16,12 +16,13 @@ function hash(text, bit) {
     total = BigInt(total ** 2).toString();
     while (total.toString().length < bit) {
         total = BigInt(Math.floor(total * 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679)).toString();
+        total = parseInt(total);
     }
     
     total = total.toString().split(''); total.splice(bit);
     OutputB = [];
     for (i = 0 ; i < total ; i++) {
-        OutputB.push(CharactersB[parseint(total[i])]);
+        OutputB.push(CharactersB[parseInt(total[i])]);
     }
     
     return OutputB.join('');
